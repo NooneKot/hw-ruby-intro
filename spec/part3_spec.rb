@@ -2,6 +2,24 @@
 
 require_relative '../lib/ruby_intro'
 
+class BookInStock
+  attr_accessor :isbn, :price
+  def initialize(isbn, price)
+    raise ArgumentError if (price <= 0) || (isbn.nil? || isbn.empty?)
+    @isbn = isbn 
+    @price = price
+  end
+  def isbn
+    return @isbn
+  end
+  def price
+    return @price
+  end
+  def price_as_string
+    return "$" + ('%.2f' % @price).to_s
+  end
+end
+
 describe 'BookInStock' do
   it 'should be defined' do
     expect { BookInStock }.not_to raise_error

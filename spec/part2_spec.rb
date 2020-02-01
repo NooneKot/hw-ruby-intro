@@ -2,6 +2,22 @@
 
 require_relative '../lib/ruby_intro'
 
+def hello(string)
+  p "Hello, " + string
+end
+
+def starts_with_consonant?(s)
+  if /^[^aeiou\W]/i.match(s) == nil
+    return false
+  else
+    return true
+  end
+end
+
+def binary_multiple_of_4?(s)
+  if (s.count('01') == s.size) && (s[-1] == "0") && (s[-2] == "0") || (s == "0") then return true else return false end
+end
+
 describe '#hello' do
   it 'should be defined' do
     expect { hello('Testing') }.not_to raise_error#::NoMethodError)
